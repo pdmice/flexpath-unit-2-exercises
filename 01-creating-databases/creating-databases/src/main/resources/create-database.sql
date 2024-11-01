@@ -1,40 +1,63 @@
-drop table if exists users;
-create table users (
-    id integer primary key auto_increment,
-    username varchar(255) not null,
-    password varchar(255) not null
+CREATE TABLE authors (
+    author_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    birth_year INT NOT NULL,
+    country VARCHAR(255) NOT NULL
 );
 
-drop table if exists topics;
-create table topics (
-    id integer primary key auto_increment,
-    subject varchar(255) not null,
-    body text not null,
-    author_id integer not null,
-    foreign key(author_id) references users(id)
+CREATE TABLE genres (
+    genre_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL
 );
 
-drop table if exists comments;
-create table comments (
-    id integer primary key auto_increment,
-    body text not null,
-    author_id integer not null,
-    topic_id integer not null,
-    foreign key(topic_id) references topics(id),
-    foreign key(author_id) references users(id)
+CREATE TABLE books (
+    book_id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    author_id INT NOT NULL,
+    genre_id INT NOT NULL,
+    publication_year INT NOT NULL,
+    FOREIGN KEY (author_id) REFERENCES authors(author_id),
+    FOREIGN KEY (genre_id) REFERENCES genres(genre_id)
 );
 
-insert into users (username, password) values ('bob', 'password');
-insert into users (username, password) values ('alice', 'password');
-insert into users (username, password) values ('charlie', 'password');
+CREATE TABLE members (
+    member_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    join_date DATE NOT NULL
+);
 
-insert into topics (subject, body, author_id) values ('First topic', 'This is the first topic', 1);
-insert into topics (subject, body, author_id) values ('Second topic', 'This is the second topic', 2);
-insert into topics (subject, body, author_id) values ('Third topic', 'This is the third topic', 3);
+CREATE TABLE loans (
+    loan_id INT PRIMARY KEY AUTO_INCREMENT,
+    book_id INT NOT NULL,
+    member_id INT NOT NULL,
+    loan_date DATE NOT NULL,
+    return_date DATE,
+    FOREIGN KEY (book_id) REFERENCES books(book_id),
+    FOREIGN KEY (member_id) REFERENCES members(member_id)
+);
 
-insert into comments (body, author_id, topic_id) values ('This is the first comment', 1, 1);
-insert into comments (body, author_id, topic_id) values ('This is the second comment', 2, 1);
-insert into comments (body, author_id, topic_id) values ('This is the third comment', 1, 2);
-insert into comments (body, author_id, topic_id) values ('This is the fourth comment', 2, 2);
-insert into comments (body, author_id, topic_id) values ('This is the fifth comment', 1, 3);
-insert into comments (body, author_id, topic_id) values ('This is the sixth comment', 2, 3);
+INSERT INTO authors (name, birth_year, country) VALUES ('F. Scott Fitzgerald', 1896, 'USA');
+INSERT INTO authors (name, birth_year, country) VALUES ('Harper Lee', 1926, 'USA');
+INSERT INTO authors (name, birth_year, country) VALUES ('George Orwell', 1903, 'UK');
+INSERT INTO authors (name, birth_year, country) VALUES ('Jane Austen', 1775, 'UK');
+INSERT INTO authors (name, birth_year, country) VALUES ('J.D. Salinger', 1919, 'USA');
+
+INSERT INTO genres (name) VALUES ('Fiction');
+INSERT INTO genres (name) VALUES ('Mystery');
+INSERT INTO genres (name) VALUES ('Dystopian');
+INSERT INTO genres (name) VALUES ('Romance');
+INSERT INTO genres (name) VALUES ('Coming of Age');
+
+INSERT INTO books (title, author_id, genre_id, publication_year) VALUES ('The Great Gatsby', 1, 1, 1925);
+INSERT INTO books (title, author_id, genre_id, publication_year) VALUES ('To Kill a Mockingbird', 2, 2, 1960);
+INSERT INTO books (title, author_id, genre_id, publication_year) VALUES ('1984', 3, 3, 1949);
+INSERT INTO books (title, author_id, genre_id, publication_year) VALUES ('Pride and Prejudice', 4, 4, 1813);
+INSERT INTO books (title, author_id, genre_id, publication_year) VALUES ('The Catcher in the Rye', 5, 5, 1951);
+
+INSERT INTO members (name, join_date) VALUES ('Alice Smith', '2020-01-01');
+INSERT INTO members (name, join_date) VALUES ('Bob Johnson', '2020-01-15');
+INSERT INTO members (name, join_date) VALUES ('Charlie Brown', '2020-02-01');
+
+INSERT INTO loans (book_id, member_id, loan_date, return_date) VALUES (1, 1, '2020-01-01', '2020-01-15');
+INSERT INTO loans (book_id, member_id, loan_date, return_date) VALUES (2, 2, '2020-01-15', '2020-02-01');
+INSERT INTO loans (book_id, member_id, loan_date, return_date) VALUES (3, 3, '2020-02-01', NULL);
