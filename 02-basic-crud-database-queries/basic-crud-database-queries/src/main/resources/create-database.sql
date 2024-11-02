@@ -30,7 +30,7 @@ CREATE TABLE Categories (
 DROP TABLE IF EXISTS Products;
 CREATE TABLE Products (
     ProductID INT PRIMARY KEY AUTO_INCREMENT,
-    CategoryID INT,
+    CategoryID INT NULL,
     ProductName VARCHAR(100) NOT NULL,
     Description TEXT,
     Price DECIMAL(10, 2) NOT NULL,
@@ -99,7 +99,7 @@ VALUES ('Books', 'Fiction and non-fiction books');
 INSERT INTO Products (CategoryID, ProductName, Description, Price, Stock, ImageURL)
 VALUES (1, 'Smartphone', 'Latest model smartphone with 128GB storage', 699.99, 50, 'https://example.com/images/smartphone.jpg');
 INSERT INTO Products (CategoryID, ProductName, Description, Price, Stock, ImageURL)
-VALUES (1, 'Laptop', '15-inch laptop with 16GB RAM and 512GB SSD', 999.99, 30, 'https://example.com/images/laptop.jpg');
+VALUES (NULL, 'Laptop', '15-inch laptop with 16GB RAM and 512GB SSD', 999.99, 30, 'https://example.com/images/laptop.jpg');
 INSERT INTO Products (CategoryID, ProductName, Description, Price, Stock, ImageURL)
 VALUES (2, 'T-Shirt', 'Cotton t-shirt in various sizes', 19.99, 100, 'https://example.com/images/tshirt.jpg');
 INSERT INTO Products (CategoryID, ProductName, Description, Price, Stock, ImageURL)
