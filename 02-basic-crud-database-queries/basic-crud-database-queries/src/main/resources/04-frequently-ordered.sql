@@ -1,0 +1,2 @@
+-- Using the OrderItems table, write a query to find products that have been ordered more than once.
+-- The result should display the ProductID and the TotalQuantityOrdered.
