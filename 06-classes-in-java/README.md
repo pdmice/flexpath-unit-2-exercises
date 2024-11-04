@@ -1,4 +1,4 @@
-# Classes in Java 
+# School Management System
 
 The exercises in this project are designed to help you understand classes in Java, as well as to give you
 experience working with multiple classes in a single project, and exposing you to a complete application
@@ -36,7 +36,20 @@ complete:
 - Fill in the constructor to set the instance variables to the values passed in as parameters.
 - Fill in the `toString` method to return a string representation of the teacher.
 
+## Running the Application
+
+To run the application, right-click on the `src/main/java/org.example/src/Main` class and select "Run 'Main.main()'".
+This will run the application and you will be able to interact with it in the console.  For initial testing and debugging,
+running the application is a good way to see how the classes interact with each other and to verify that your code is working
+correctly.
+
+While it may be tempting to simply skip to running unit tests, with a larger project like this one, it is important to
+also run the application and to understand your code and changes in the context of the entire application and from
+the perspective of an end user.
+
 ## Running the Tests
+
+As always, final verification of your code should be done by running the unit tests.
 
 To run the tests, right-click on the `test/java/org.example/src/ExerciseTests` class and select "Run 'ExercisesTests'".
 This will run all of the tests for the exercises. When a test succeeds, you will see a green checkmark next to the test.
