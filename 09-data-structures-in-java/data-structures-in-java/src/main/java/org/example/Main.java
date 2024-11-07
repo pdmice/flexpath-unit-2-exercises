@@ -73,8 +73,8 @@ public class Main {
     /**
      * Builds a map of student names to grades.
      *
-     * @param students a list of student names in order
      * @param grades a list of student grades in order
+     * @param students a list of student names in order
      * @return a map of student names to grades
      */
     public static HashMap<String, Double> buildStudentGradesMap(List<String> students, List<Double> grades) {
