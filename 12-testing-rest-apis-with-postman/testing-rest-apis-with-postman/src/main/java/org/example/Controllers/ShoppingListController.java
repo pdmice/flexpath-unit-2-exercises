@@ -11,11 +11,18 @@ import java.util.List;
  * Represents a controller for the shopping list.
  */
 @RestController
+@RequestMapping("/shopping")
 public class ShoppingListController {
     /**
      * The shopping list.
      */
-    private List<ShoppingListItem> shoppingList = new ArrayList<>();
+    private List<ShoppingListItem> shoppingList = List.of(
+        new ShoppingListItem(1, "Milk", 2.99, 1),
+        new ShoppingListItem(2, "Bread", 1.99, 2),
+        new ShoppingListItem(3, "Eggs", 3.99, 1),
+        new ShoppingListItem(4, "Butter", 2.49, 1),
+        new ShoppingListItem(5, "Cheese", 4.99, 1)
+    );
 
     /**
      * Gets all the items in the shopping list.
