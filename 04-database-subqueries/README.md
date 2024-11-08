@@ -1,6 +1,6 @@
 # Subquery exercises
 
-This repository contains several exercises to practice SQL subqueries against a simple E-commerce database. 
+The exercises in this project are designed to help you review your knowledge of SQL subqueries.
 
 ## Creating the database
 
