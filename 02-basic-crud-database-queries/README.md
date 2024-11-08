@@ -1,6 +1,6 @@
 # SELECT query exercises
 
-This repository contains several exercises to practice basic SQL queries against a simple E-commerce database. 
+The exercises in this project are designed to help you review your knowledge of SQL SELECT statements.
 
 ## Creating the database
 
