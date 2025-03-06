@@ -2,6 +2,14 @@
 -- DO NOT MODIFY
 ----------------------------------------
 
+-- RESET
+DROP TABLE IF EXISTS OrderItems;
+DROP TABLE IF EXISTS Payments;
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Products;
+DROP TABLE IF EXISTS Categories;
+
 -- Users Table
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
