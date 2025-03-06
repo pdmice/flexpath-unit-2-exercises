@@ -53,7 +53,7 @@ public class ExerciseTests {
     @Test
     public void testSafeDivideWithCustomException() {
         try {
-            var result = Main.safeDivideWithCustomException(4.0, 0.0);
+            var result = Main.safeDivideWithCustomException(4.0, 2.0);
             Assertions.fail("safeDivideWithCustomException should throw a CustomDivideByZeroException: " + result);
         } catch (org.example.CustomDivideByZeroException e) {
             assertEquals(4.0, e.getA());
