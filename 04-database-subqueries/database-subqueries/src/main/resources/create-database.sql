@@ -2,6 +2,14 @@
 -- DO NOT MODIFY
 ----------------------------------------
 
+-- RESET
+DROP TABLE IF EXISTS OrderItems;
+DROP TABLE IF EXISTS Payments;
+DROP TABLE IF EXISTS Orders;
+DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS Products;
+DROP TABLE IF EXISTS Categories;
+
 -- Users Table
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
@@ -124,4 +132,5 @@ VALUES (2, 1, 1, 699.99);  -- Order 2: 1 Smartphone
 -- Sample Data for Payments Table
 INSERT INTO Payments (OrderID, Amount, PaymentMethod, Status)
 VALUES (1, 719.98, 'Credit Card', 'Completed');
+INSERT INTO Payments (OrderID, Amount, PaymentMethod, Status)
 VALUES (2, 32.98, 'PayPal', 'Pending');
