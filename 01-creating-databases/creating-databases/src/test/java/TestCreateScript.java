@@ -17,11 +17,11 @@ public class TestCreateScript {
         configBuilder.setPort(0);
         db = DB.newEmbeddedDB(configBuilder.build());
         db.start();
-        db.createDB("test", "root", "");
+        db.createDB("test", "rahvin", "");
 
         connection = DriverManager.getConnection(
             "jdbc:mariadb://localhost:" + db.getConfiguration().getPort() + "/test",
-            "root",
+            "rahvin",
             ""
         );
 
