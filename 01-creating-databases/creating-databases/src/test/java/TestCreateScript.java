@@ -17,11 +17,11 @@ public class TestCreateScript {
         configBuilder.setPort(0);
         db = DB.newEmbeddedDB(configBuilder.build());
         db.start();
-        db.createDB("test", "rahvin", "");
+        db.createDB("test", "root", "");
 
         connection = DriverManager.getConnection(
             "jdbc:mariadb://localhost:" + db.getConfiguration().getPort() + "/test",
-            "rahvin",
+            "root",
             ""
         );
 
@@ -234,7 +234,7 @@ public class TestCreateScript {
                             throw new Exception("Column " + table + "." + column + " has wrong type - Expected: " + types[i] + " Found: " + resultSet.getString("Type"));
                         }
                         if (!resultSet.getString("Key").equals(keys[i])) {
-                            throw new Exception("Column " + table + "." + column + " has wrong key type - Expected: " + keys[i] + " Found: " + resultSet.getString("Key"));
+                                throw new Exception("Column " + table + "." + column + " has wrong key type - Expected: " + keys[i] + " Found: " + resultSet.getString("Key"));
                         }
                         if (!resultSet.getString("Extra").equals(extra[i])) {
                             throw new Exception("Column " + table + "." + column + " has wrong extra - Expected: " + extra[i] + " Found: " + resultSet.getString("Extra"));
