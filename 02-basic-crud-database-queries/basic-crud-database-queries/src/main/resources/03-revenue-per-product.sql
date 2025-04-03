@@ -3,3 +3,7 @@
 -- (calculated as the sum of Price * Quantity for each OrderItem entry for the product).
 -- Order the results by ProductID in ascending order.
 
+SELECT OrderItems.ProductID,Products.ProductName,  SUM(OrderItems.PRICE * OrderItems.Quantity) AS 'TotalRevenue'
+FROM OrderItems
+JOIN Products ON OrderItems.ProductID = Products.ProductID
+GROUP BY OrderItems.ProductID;
